@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자기소개 페이지</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: linen;
+            color: blueviolet;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: slateblue;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: lightgrey;
+            padding: 1em;
+        }
+
+        nav a {
+            margin: 0 1em;
+            text-decoration: none;
+            color: slateblue;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: darkblue;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2em;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 2em 0;
+        }
+
+        .intro, .hobby, .schedule {
+            margin-bottom: 2em;
+            padding: 1em;
+            border: 1px solid lightgrey;
+            border-radius: 8px;
+            background-color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em;
+            background-color: slateblue;
+            color: white;
+        }
+
+        #signup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 2em;
+            border: 1px solid lightgrey;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        #signup.active {
+            display: block;
+        }
+
+        .form-container label {
+            display: block;
+            margin: 0.5em 0 0.2em;
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 0.5em;
+            margin-bottom: 1em;
+            border: 1px solid lightgrey;
+            border-radius: 4px;
+        }
+
+        .form-container button {
+            background-color: slateblue;
+            color: white;
+            border: none;
+            padding: 0.7em 1.5em;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: darkslateblue;
+        }
+
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        #overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>조민철의 자기소개 페이지</h1>
+    </header>
+
+    <nav>
+        <a href="#intro">소개</a>
+        <a href="#hobby">취미</a>
+        <a href="#schedule">시간표</a>
+        <a href="#" onclick="openSignup()">회원가입</a>
+    </nav>
+
+    <main>
+        <section id="intro" class="intro">
+            <h2>자기소개</h2>
+            <ol><strong>이름: 조민철</strong></ol>
+            <ol><i>학과: <a href="https://futureplus.hansung.ac.kr/ko/department/future" target="_blank">미래인재학부</a></i></ol>
+            <ol><h4><mark>학번: 2406008</mark></h4></ol>
+            <ol><h3><em>주소: 인천</em></h3></ol>
+            <img src="https://campustown.seoul.go.kr/site/main/file/image/uu/c232dd8339aa43fbb7eb58a2e812a192" width="150" height="200" alt="이미지1">
+<img src="C:\Users\clean\Desktop\조민철.jpg" width="100" height="100">
+        </section>
+
+        <section id="hobby" class="hobby">
+            <h2>취미</h2>
+            <p>헬스</p>
+            <ul>
+                <li>내가 좋아하는 음식 리스트
+                    <ul>
+                        <li>피자</li>
+                        <li>치킨</li>
+                        <li>초계국수</li>
+                    </ul>
+                </li>
+                <li>라면 먹기 좋아함
+                    <ol type="1">
+                        <li>물을 끓인다.</li>
+                        <li>스프를 먼저 넣는다.</li>
+                        <li>라면을 넣는다.</li>
+                        <li>마지막에 계란을 넣어 반숙으로 만든다.</li>
+                    </ol>
+                </li>
+                <li>여름에는 워터파크</li>
+                <li>겨울에는 집콕으로</li>
+            </ul>
+        </section>
+
+        <section id="schedule" class="schedule">
+            <h2>시간표</h2>
+            <table border="1" style="width:100%; text-align:center;">
+                <thead>
+                    <tr>
+                        <th>시간</th>
+                        <th>과목</th>
+                        <th>위치</th>
+                        <th>교수</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>09:00</td>
+                        <td>데이터 사이언스 기초</td>
+                        <td>미래관B111</td>
+                        <td>신성</td>
+                    </tr>
+                    <tr>
+                        <td>10:00</td>
+                        <td>AI를 위한 기초수학1</td>
+                        <td>미래관B111</td>
+                        <td>신성</td>
+                    </tr>
+                    <tr>
+                        <td>13:00</td>
+                        <td>C프로그래밍</td>
+                        <td>미래관B111</td>
+                        <td>장현주</td>
+                    </tr>
+                    <tr>
+                        <td>15:00</td>
+                        <td>웹프로그래밍</td>
+                        <td>미래관B111</td>
+                        <td>장현주</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <div id="overlay"></div>
+
+    <section id="signup">
+        <h2>회원가입</h2>
+        <form class="form-container">
+            <label for="username">이름:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="email">이메일:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">비밀번호:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">회원가입</button>
+        </form>
+    </section>
+
+    <footer>
+        &copy; 2024 조민철의 페이지
+    </footer>
+
+    <script>
+        function openSignup() {
+            document.getElementById('signup').classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+        }
+
+        document.getElementById('overlay').addEventListener('click', function () {
+            document.getElementById('signup').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+        });
+    </script>
+</body>
+</html>
