@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>자기소개 페이지</title>
+    <title>조민철의 자기소개 페이지</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,11 +13,24 @@
             padding: 0;
         }
 
-        header {
+        header, footer {
             background-color: slateblue;
             color: white;
-            padding: 1em 0;
             text-align: center;
+            padding: 1em 0;
+        }
+
+        header h1 {
+            animation: growText 3s infinite alternate;
+        }
+
+        @keyframes growText {
+            0% {
+                font-size: 1.5em;
+            }
+            100% {
+                font-size: 2.5em;
+            }
         }
 
         nav {
@@ -32,6 +45,7 @@
             text-decoration: none;
             color: slateblue;
             font-weight: bold;
+            transition: color 0.3s;
         }
 
         nav a:hover {
@@ -39,33 +53,34 @@
         }
 
         main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             padding: 2em;
         }
 
         section {
-            max-width: 800px;
             margin: 2em 0;
-        }
-
-        .intro, .hobby, .schedule {
-            margin-bottom: 2em;
             padding: 1em;
             border: 1px solid lightgrey;
             border-radius: 8px;
             background-color: white;
         }
 
-        footer {
+        table {
+            width: 100%;
             text-align: center;
-            padding: 1em;
-            background-color: slateblue;
-            color: white;
+            border-collapse: collapse;
         }
 
-        #signup {
+        table th, table td {
+            padding: 0.5em;
+            border: 1px solid lightgrey;
+            transition: background-color 0.3s;
+        }
+
+        table th:hover, table td:hover {
+            background-color: lightblue;
+        }
+
+        #signup, #notice {
             display: none;
             position: fixed;
             top: 50%;
@@ -79,34 +94,8 @@
             z-index: 1000;
         }
 
-        #signup.active {
+        #signup.active, #notice.active {
             display: block;
-        }
-
-        .form-container label {
-            display: block;
-            margin: 0.5em 0 0.2em;
-        }
-
-        .form-container input {
-            width: 100%;
-            padding: 0.5em;
-            margin-bottom: 1em;
-            border: 1px solid lightgrey;
-            border-radius: 4px;
-        }
-
-        .form-container button {
-            background-color: slateblue;
-            color: white;
-            border: none;
-            padding: 0.7em 1.5em;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .form-container button:hover {
-            background-color: darkslateblue;
         }
 
         #overlay {
@@ -123,58 +112,74 @@
         #overlay.active {
             display: block;
         }
+
+        .form-container label {
+            display: block;
+            margin: 0.5em 0 0.2em;
+        }
+
+        .form-container input, .form-container select, .form-container textarea, .form-container button {
+            width: 100%;
+            padding: 0.7em;
+            margin-bottom: 1em;
+            border: 1px solid lightgrey;
+            border-radius: 4px;
+        }
+
+        .form-container input[type="radio"], .form-container input[type="checkbox"] {
+            margin-right: 0.5em;
+        }
+
+        .form-container button {
+            background-color: slateblue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: darkslateblue;
+        }
     </style>
 </head>
-<body>
+<body onload="showNotice()">
     <header>
         <h1>조민철의 자기소개 페이지</h1>
     </header>
 
     <nav>
         <a href="#intro">소개</a>
-        <a href="#hobby">취미</a>
+        <a href="#interests">관심사</a>
         <a href="#schedule">시간표</a>
+        <a href="#department">학과소개</a>
+        <a href="#work">하는일</a>
+        <a href="#photo">사진</a>
         <a href="#" onclick="openSignup()">회원가입</a>
+        <a href="javascript:alert('클릭하셨어요?')">클릭해보세요</a>
     </nav>
 
     <main>
-        <section id="intro" class="intro">
+        <section id="intro">
             <h2>자기소개</h2>
-            <ol><strong>이름: 조민철</strong></ol>
-            <ol><i>학과: <a href="https://futureplus.hansung.ac.kr/ko/department/future" target="_blank">미래인재학부</a></i></ol>
-            <ol><h4><mark>학번: 2406008</mark></h4></ol>
-            <ol><h3><em>주소: 인천</em></h3></ol>
-            <img src="https://campustown.seoul.go.kr/site/main/file/image/uu/c232dd8339aa43fbb7eb58a2e812a192" width="150" height="200" alt="이미지1">
-<img src="C:\Users\clean\Desktop\조민철.jpg" width="100" height="100">
+            <p>이름: 조민철</p>
+            <p>학번: 2406008</p>
+            <p>주소: 인천</p>
+            <p>하는일: IT PM</p>
         </section>
 
-        <section id="hobby" class="hobby">
-            <h2>취미</h2>
-            <p>헬스</p>
+        <section id="interests">
+            <h2>관심사</h2>
             <ul>
-                <li>내가 좋아하는 음식 리스트
-                    <ul>
-                        <li>피자</li>
-                        <li>치킨</li>
-                        <li>초계국수</li>
-                    </ul>
-                </li>
-                <li>라면 먹기 좋아함
-                    <ol type="1">
-                        <li>물을 끓인다.</li>
-                        <li>스프를 먼저 넣는다.</li>
-                        <li>라면을 넣는다.</li>
-                        <li>마지막에 계란을 넣어 반숙으로 만든다.</li>
-                    </ol>
-                </li>
-                <li>여름에는 워터파크</li>
-                <li>겨울에는 집콕으로</li>
+                <li>헬스</li>
+                <li>좋아하는 음식: 피자, 치킨, 초계국수</li>
+                <li>여름엔 워터파크, 겨울엔 집콕</li>
             </ul>
         </section>
 
-        <section id="schedule" class="schedule">
+        <section id="schedule">
             <h2>시간표</h2>
-            <table border="1" style="width:100%; text-align:center;">
+            <table>
                 <thead>
                     <tr>
                         <th>시간</th>
@@ -211,11 +216,25 @@
                 </tbody>
             </table>
         </section>
+
+        <section id="department">
+            <h2>학과소개</h2>
+            <p><a href="https://futureplus.hansung.ac.kr/ko/department/future" target="_blank">미래인재학부 바로가기</a></p>
+        </section>
+
+        <section id="work">
+            <h2>하는일</h2>
+            <p>IT PM.</p>
+        </section>
+
+        <section id="photo">
+            <h2>사진</h2>
+            <img src="https://campustown.seoul.go.kr/site/main/file/image/uu/c232dd8339aa43fbb7eb58a2e812a192" alt="이미지1" width="150">
+            <img src="img/조민철.jpg" alt="이미지2" width="150">
+        </section>
     </main>
 
-    <div id="overlay"></div>
-
-    <section id="signup">
+    <div id="signup">
         <h2>회원가입</h2>
         <form class="form-container">
             <label for="username">이름:</label>
@@ -227,24 +246,65 @@
             <label for="password">비밀번호:</label>
             <input type="password" id="password" name="password" required>
 
+            <label for="gender">성별:</label>
+            <select id="gender" name="gender">
+                <option value="male">남성</option>
+                <option value="female">여성</option>
+            </select>
+
+            <label>성인 여부:</label>
+            <input type="radio" id="adult" name="ageGroup" value="adult">
+            <label for="adult">성인</label>
+            <input type="radio" id="minor" name="ageGroup" value="minor">
+            <label for="minor">비성인</label>
+
+            <label for="bio">소개:</label>
+            <textarea id="bio" name="bio"></textarea>
+
+            <label for="agree">
+                <input type="checkbox" id="agree" name="agree" required>
+                개인정보 수집에 동의합니다.
+            </label>
+
             <button type="submit">회원가입</button>
         </form>
-    </section>
+        <button onclick="closePopup()">닫기</button>
+    </div>
+
+    <div id="notice">
+        <h2>공지사항</h2>
+        <p>이 페이지에 적용된 이벤트:</p>
+        <ul>
+            <li>마우스오버 시 색상 변경 (메뉴, 표)</li>
+            <li>클릭 시 알림 팝업 창 ("클릭해보세요" 링크)</li>
+            <li>공지사항 표시 (페이지 로드 시)</li>
+            <li>조민철의 자기소개 페이지 글씨 커졌다 작아졌다</li>
+        </ul>
+        <button onclick="closePopup()">닫기</button>
+    </div>
+
+    <div id="overlay" onclick="closePopup()"></div>
 
     <footer>
         &copy; 2024 조민철의 페이지
     </footer>
 
     <script>
+        function showNotice() {
+            document.getElementById('notice').classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+        }
+
         function openSignup() {
             document.getElementById('signup').classList.add('active');
             document.getElementById('overlay').classList.add('active');
         }
 
-        document.getElementById('overlay').addEventListener('click', function () {
+        function closePopup() {
             document.getElementById('signup').classList.remove('active');
+            document.getElementById('notice').classList.remove('active');
             document.getElementById('overlay').classList.remove('active');
-        });
+        }
     </script>
 </body>
 </html>
